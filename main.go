@@ -21,7 +21,7 @@ var socialClient *social.Client
 
 func main() {
 	var err error
-	serverURL = "https://line-robot-1.dorichor.com/"
+	serverURL = "https://line-robot-1.dorichor.com"
 	channelID = "1657518053"                           // os.Getenv("LINECORP_PLATFORM_CHANNEL_CHANNELID")
 	channelSecret = "77f73a0f78a32b69237b989be0125226" // os.Getenv("LINECORP_PLATFORM_CHANNEL_CHANNELSECRET")
 
