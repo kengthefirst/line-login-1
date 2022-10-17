@@ -37,6 +37,7 @@ func gotoauthpage(w http.ResponseWriter, r *http.Request) {
 	codeVerifier = social.GenerateCodeVerifier(43)
 	codeChallenge = social.PkceChallenge(codeVerifier)
 
+	log.Println("state: ", state, "nonce: ", nonce, "chatbot: ", chatbot)
 	log.Println("gotoauthpage - codeVerifier:", codeVerifier, " codeChallenge:", codeChallenge)
 	targetURL := socialClient.GetPKCEWebLoinURL(redirectURL, state, scope, codeChallenge, social.AuthRequestOptions{Nonce: nonce, BotPrompt: chatbot, Prompt: "consent"})
 	http.Redirect(w, r, targetURL, http.StatusSeeOther)
@@ -57,6 +58,7 @@ func gotoauthOpenIDpage(w http.ResponseWriter, r *http.Request) {
 	codeVerifier = social.GenerateCodeVerifier(43)
 	codeChallenge = social.PkceChallenge(codeVerifier)
 
+	log.Println("state: ", state, "nonce: ", nonce, "chatbot: ", chatbot)
 	log.Println("gotoauthOpenIDpage - codeVerifier:", codeVerifier, " codeChallenge:", codeChallenge)
 	targetURL := socialClient.GetPKCEWebLoinURL(redirectURL, state, scope, codeChallenge, social.AuthRequestOptions{Nonce: nonce, BotPrompt: chatbot, Prompt: "consent"})
 	http.Redirect(w, r, targetURL, http.StatusSeeOther)

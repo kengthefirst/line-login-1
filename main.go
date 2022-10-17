@@ -52,5 +52,6 @@ func main() {
 	//provide by Heroku
 	port := os.Getenv("PORT")
 	addr := fmt.Sprintf(":%s", port)
+	fmt.Printf("Start web service !!\n")
 	http.ListenAndServe(addr, nil)
 }

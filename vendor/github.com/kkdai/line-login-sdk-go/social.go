@@ -176,6 +176,7 @@ func (call *TokenVerifyCall) Do() (*TokenVerifyResponse, error) {
 		os.Exit(1)
 	}
 	u.Path = path.Join(u.Path, APIEndpointTokenVerify)
+	log.Println("TokenVerifyCall u.Path: ", u.String())
 	req, err := http.NewRequest("GET", u.String(), nil)
 	if err != nil {
 		return nil, err
@@ -196,8 +197,8 @@ func (call *TokenVerifyCall) Do() (*TokenVerifyResponse, error) {
 }
 
 // Refresh Token: Gets a new access token using a refresh token. Refresh tokens are returned with the access token when the user authorizes your app.
-//Note: This is the reference for the v2.1 endpoint. For the v2 reference, see Refresh access token v2.
-//Note: Cannot be used to refresh channel access tokens which are used for the Messaging API.
+// Note: This is the reference for the v2.1 endpoint. For the v2 reference, see Refresh access token v2.
+// Note: Cannot be used to refresh channel access tokens which are used for the Messaging API.
 func (client *Client) RefreshToken(refreshToken string) *RefreshTokenCall {
 	return &RefreshTokenCall{
 		c:            client,
@@ -238,8 +239,8 @@ func (call *RefreshTokenCall) Do() (*TokenRefreshResponse, error) {
 }
 
 // RevokeToken: Invalidates the access token.
-//Note: This is the reference for the v2.1 endpoint. For the v2 reference, see Revoke access token v2.
-//Note: Cannot be used to invalidate channel access tokens which are used for the Messaging API.
+// Note: This is the reference for the v2.1 endpoint. For the v2 reference, see Revoke access token v2.
+// Note: Cannot be used to invalidate channel access tokens which are used for the Messaging API.
 func (client *Client) RevokeToken(accessToken string) *RevokeTokenCall {
 	return &RevokeTokenCall{
 		c:           client,
@@ -279,7 +280,7 @@ func (call *RevokeTokenCall) Do() (*BasicResponse, error) {
 }
 
 // GetUserProfile: Gets a user's display name, profile image, and status message.
-//Note: Requires an access token with the profile scope. For more information, see Making an authorization request and Scopes.
+// Note: Requires an access token with the profile scope. For more information, see Making an authorization request and Scopes.
 func (client *Client) GetUserProfile(accessToken string) *GetUserProfileCall {
 	return &GetUserProfileCall{
 		c:           client,
@@ -316,8 +317,8 @@ func (call *GetUserProfileCall) Do() (*GetUserProfileResponse, error) {
 }
 
 // GetFriendshipStatus: Gets the friendship status of the user and the bot linked to your LINE Login channel.
-//Note: Requires an access token with the profile scope. For more information, see Making an authorization request and Scopes.
-//Note: You must have a bot linked with your channel. For more information, see Linking a bot with your LINE Login channel.
+// Note: Requires an access token with the profile scope. For more information, see Making an authorization request and Scopes.
+// Note: You must have a bot linked with your channel. For more information, see Linking a bot with your LINE Login channel.
 func (client *Client) GetFriendshipStatus(accessToken string) *GetFriendshipStatusCall {
 	return &GetFriendshipStatusCall{
 		c:           client,
