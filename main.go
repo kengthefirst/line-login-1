@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
 	social "github.com/kkdai/line-login-sdk-go"
 	"github.com/line/line-bot-sdk-go/v7/linebot"
@@ -50,7 +49,7 @@ func main() {
 	http.HandleFunc("/callback", callbackHandler)
 
 	//provide by Heroku
-	port := os.Getenv("PORT")
+	port := "3000"
 	addr := fmt.Sprintf(":%s", port)
 	fmt.Printf("Start web service !!\n")
 	http.ListenAndServe(addr, nil)
