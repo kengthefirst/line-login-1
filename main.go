@@ -26,7 +26,7 @@ func main() {
 	channelSecret = "77f73a0f78a32b69237b989be0125226" // os.Getenv("LINECORP_PLATFORM_CHANNEL_CHANNELSECRET")
 
 	// if bot, err = linebot.New(os.Getenv("LINECORP_PLATFORM_CHATBOT_CHANNELSECRET"), os.Getenv("LINECORP_PLATFORM_CHATBOT_CHANNELTOKEN")); err != nil {
-	if bot, err = linebot.New("1657518121", "cec2e43307b02d7d39fd4c48b5d81b19"); err != nil {
+	if bot, err = linebot.New("cec2e43307b02d7d39fd4c48b5d81b19", "ZqxAOZv1Lpi9TjPByENgi12ByPQa8+RbBWZx/uh1AB1JtmOYIE7tyzSEDlIlaD4AqM2iOYH8RfcYSYNhRHFpCfay181J6qG060ReCLaDNXrpXSyO+7qGQRheTtc2SFi5HmVI2LDcVx2xykIk5PH4oAdB04t89/1O/w1cDnyilFU="); err != nil {
 		log.Println("Bot:", bot, " err:", err)
 		return
 	}
